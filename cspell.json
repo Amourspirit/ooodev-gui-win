@@ -1,0 +1,25 @@
+{
+    "version": "0.2",
+    "ignorePaths": [],
+    "dictionaryDefinitions": [],
+    "dictionaries": [],
+    "words": [
+        "abstrancmethod",
+        "APPIMAGE",
+        "Codespace",
+        "endregion",
+        "flatpak",
+        "levelname",
+        "mkdirp",
+        "ooopip",
+        "preinstall",
+        "soffice",
+        "sourcery",
+        "startupinfo",
+        "unohelper",
+        "verr",
+        "vstr"
+    ],
+    "ignoreWords": [],
+    "import": []
+}
