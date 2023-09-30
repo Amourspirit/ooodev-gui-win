@@ -23,9 +23,9 @@ lo_implementation_name = "OooDevGuiWin"
 display_name_en_us = "GUI Automation for LibreOffice"
 description_en_us = "Add GUI Automation Software to LibreOffice in Windows"
 publisher_en_us = "AmourSpirit"
-publisher_url = "https://github.com/Amourspirit/ooodev-gui-win"
-update_url_xml = "https://raw.githubusercontent.com/Amourspirit/ooodev-gui-win/main/___dist_dir___/___update_file___"
-update_url_oxt = "https://raw.githubusercontent.com/Amourspirit/ooodev-gui-win/main/___dist_dir___/___oxt_name___.oxt"
+publisher_url = "https://github.com/Amourspirit/ooodev-gui-win-ext"
+update_url_xml = "https://raw.githubusercontent.com/Amourspirit/ooodev-gui-win-ext/main/___dist_dir___/___update_file___"
+update_url_oxt = "https://raw.githubusercontent.com/Amourspirit/ooodev-gui-win-ext/main/___dist_dir___/___oxt_name___.oxt"
 url_pip = 'https://bootstrap.pypa.io/get-pip.py'
 # set log_file to "" to disable logging
 log_file = "ooodevguiwin_install.log"
