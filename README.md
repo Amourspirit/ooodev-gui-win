@@ -21,6 +21,16 @@ See Also:
 - [OOO Development Tools - Part 3: Draw & Impress](https://python-ooo-dev-tools.readthedocs.io/en/latest/odev/part3/index.html)
 - [OooDev GUI Automation for Windows](https://ooo-dev-tools-gui-win.readthedocs.io/en/latest/index.html).
 
+## Install Notes
+
+Because this extension installs python packages that require some compiling, it may, depending on what packages are not yet installed, take a few minutes to install on first startup. After initial install there is no delay to LibreOffice startup.
+
+The extension will install the packages in the user's python environment. If the user does not have a python environment, one will be created. If the LibreOffice python environment does not exist, one will be created.
+
+A log file can be found in the LibreOffice user directory. The log file is named `ooodevguiwin_install.log`. The log file will contain information about the installation and any errors that may have occurred.
+
+The LibreOffice user folder is usually located at `C:\Users\<user>\AppData\Roaming\Python\Python38\site-packages` where `<user>` is the user name. Also there is an environment variable `ORG_OPENOFFICE_EXTENSIONS_OOODEVGUIWIN_LOG_FILE` that can be used to find the path of the log file.
+
 ## Example Macro
 
 This example is a macro that will toggle the status bar in Writer by sending a key combination to the GUI.
@@ -38,9 +48,7 @@ def toggle_status(*args, **kwargs):
     with MacroLoader():
         RobotKeys.send_current(SendKeyInfo(WriterKeyCodes.TOGGLE_STATUS_BAR))
 
-g_exportedScripts = (
-    toggle_status,
-	)
+g_exportedScripts = (toggle_status,)
 ```
 
 See Also:
