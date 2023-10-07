@@ -4,15 +4,47 @@
 
 # LibreOffice Extension - OooDev GUI Automation for Windows
 
-This is a LibreOffice Extension project for the [ooo-dev-tools-gui-win package](https://pypi.org/project/ooo-dev-tools-gui-win/).
+This is a LibreOffice Extension project for the [ooo-dev-tools-gui-win] python package.
 
-[ooo-dev-tools-gui-win package](https://pypi.org/project/ooo-dev-tools-gui-win/) can be pip installed; However, this can be cumbersome that is the reason for this project.
+## Introduction
 
-Installing this extension into LibreOffice on Windows installs the [ooo-dev-tools-gui-win package](https://pypi.org/project/ooo-dev-tools-gui-win/) python package and all of its dependencies. 
+Although the LibreOffice API gives access to many parts of the LibreOffice application, it does not give access to everything. This project is an extension that allows access to the GUI. This project a set of python modules to automate the LibreOffice GUI. At its simplest it allows you to send mouse and keyboard actions to windows dialogs and controls.
 
-See docs for [OooDev GUI Automation for Windows](https://ooo-dev-tools-gui-win.readthedocs.io/en/latest/index.html).
+[ooo-dev-tools-gui-win] python package can be pip installed; However, this can be cumbersome that is the reason for this project. See [Pip & Virtual Environments](https://python-ooo-dev-tools.readthedocs.io/en/latest/guide/virtual_env/index.html).
+
+This project uses [ooo-dev-tools-gui-win], [ooo-dev-tools](https://pypi.org/project/ooo-dev-tools/) (OooDev) and  [pywinauto](https://pypi.org/project/pywinauto/) python packages. This by installing this extension you will also install these packages and get access to their functionality.
 
 For an example see [Impress append Slides to existing slide show](https://github.com/Amourspirit/python-ooouno-ex/tree/main/ex/auto/impress/odev_append_slides) on [Live LibreOffice Python UNO Examples](https://github.com/Amourspirit/python-ooouno-ex#readme)
 
-See Also: [OOO Development Tools - Part 3: Draw & Impress](https://python-ooo-dev-tools.readthedocs.io/en/latest/odev/part3/index.html)
+See Also:
 
+- [OOO Development Tools - Part 3: Draw & Impress](https://python-ooo-dev-tools.readthedocs.io/en/latest/odev/part3/index.html)
+- [OooDev GUI Automation for Windows](https://ooo-dev-tools-gui-win.readthedocs.io/en/latest/index.html).
+
+## Example Macro
+
+This example is a macro that will toggle the status bar in Writer by sending a key combination to the GUI.
+
+```python
+# coding: utf-8
+from __future__ import unicode_literals, annotations
+
+from odevgui_win.robot_keys import RobotKeys
+from odevgui_win.class_args.send_key_info import SendKeyInfo
+from odevgui_win.keys.writer_key_codes import WriterKeyCodes
+from ooodev.macro.macro_loader import MacroLoader
+
+def toggle_status(*args, **kwargs):
+    with MacroLoader():
+        RobotKeys.send_current(SendKeyInfo(WriterKeyCodes.TOGGLE_STATUS_BAR))
+
+g_exportedScripts = (
+    toggle_status,
+	)
+```
+
+See Also:
+- [OooDev - Loading for Macro Execution](https://python-ooo-dev-tools.readthedocs.io/en/latest/odev/part1/chapter02.html#loading-for-macro-execution)
+- [OooDev - MacroLoader](https://python-ooo-dev-tools.readthedocs.io/en/latest/src/macro/index.html#ooodev.macro.MacroLoader)
+
+[ooo-dev-tools-gui-win]:https://pypi.org/project/ooo-dev-tools-gui-win/
