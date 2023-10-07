@@ -4,10 +4,8 @@
     xmlns:xlink="http://www.w3.org/1999/xlink">
     <identifier value="___lo_identifier___" />
 
-    <platform value="windows_x86, windows_x86_64" />
-
     <version value="___version___" />
-    <platform value="all"/>
+    <platform value="___platform___"/>
 
     <update-information>
         <src xlink:href="___update_url_xml___" />
