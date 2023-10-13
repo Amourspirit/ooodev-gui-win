@@ -54,6 +54,8 @@ class Config(metaclass=Singleton):
         self._logger = OxtLogger(log_name=__name__)
         self._logger.debug("Initializing Config")
         try:
+            self._resource_dir_name = "resources"
+            self._resource_properties_prefix = "pipstrings"
             self._log_file = logger_config.log_file
             self._log_name = logger_config.log_name
             self._log_format = logger_config.log_format
@@ -66,6 +68,8 @@ class Config(metaclass=Singleton):
             self._test_internet_url = generals_settings.test_internet_url
             self._log_pip_installs = generals_settings.log_pip_installs
             self._show_progress = generals_settings.show_progress
+            self._startup_event = generals_settings.startup_event
+            self._delay_startup = generals_settings.delay_startup
 
             self._session = Session()
             self._extension_info = ExtensionInfo()
@@ -197,6 +201,19 @@ class Config(metaclass=Singleton):
     # endregion Methods
 
     # region Properties
+    @property
+    def basic_config(self) -> BasicConfig:
+        """
+        Gets the basic config.
+        """
+        return self._basic_config
+
+    @property
+    def delay_startup(self) -> bool:
+        """
+        Gets the flag indicating if the startup should be delayed.
+        """
+        return self._delay_startup
 
     @property
     def url_pip(self) -> str:
@@ -464,11 +481,45 @@ class Config(metaclass=Singleton):
         return self._basic_config.has_locals
 
     @property
+    def resource_dir_name(self) -> str:
+        """
+        Gets the name of the resources directory.
+        """
+        return self._resource_dir_name
+
+    @property
+    def resource_properties_prefix(self) -> str:
+        """
+        Gets the prefix for resource properties.
+        """
+        return self._resource_properties_prefix
+
+    @property
     def show_progress(self) -> bool:
         """
         Gets the flag indicating if the terminal should be shown.
         """
         return self._show_progress
+
+    @property
+    def startup_event(self) -> str:
+        """
+        Gets the startup event of the extension.
+
+        The value for this property can be set in pyproject.toml (tool.oxt.token.startup_event)
+        """
+        return self._startup_event
+
+    @property
+    def window_timeout(self) -> int:
+        """
+        Gets the window timeout value.
+
+        The value for this property can be set in pyproject.toml (tool.oxt.config.window_timeout)
+
+        This is the number of seconds to wait for the LibreOffice window to start before installing packages without requiring a LibreOffice window.
+        """
+        return self._basic_config.window_timeout
 
     # endregion Properties
 
