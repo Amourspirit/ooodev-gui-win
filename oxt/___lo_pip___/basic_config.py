@@ -3,8 +3,6 @@ from pathlib import Path
 from typing import Dict, List, cast
 import json
 
-from .meta.singleton import Singleton
-
 
 class ConfigMeta(type):
     _instance = None
@@ -30,6 +28,11 @@ class BasicConfig(metaclass=ConfigMeta):
         self._install_wheel = bool(kwargs["install_wheel"])
         self._has_locals = bool(kwargs["has_locals"])
         self._window_timeout = int(kwargs["window_timeout"])
+        self._dialog_desktop_owned = bool(kwargs["dialog_desktop_owned"])
+        self._default_locale = cast(List[str], (kwargs["default_locale"]))
+        self._resource_dir_name = str(kwargs["resource_dir_name"])
+        self._resource_properties_prefix = str(kwargs["resource_properties_prefix"])
+
         if "requirements" not in kwargs:
             kwargs["requirements"] = {}
         self._requirements: Dict[str, str] = dict(**kwargs["requirements"])
@@ -50,6 +53,28 @@ class BasicConfig(metaclass=ConfigMeta):
             When running in a dev container (Codespace), this value is always set to ``True``.
         """
         return self._auto_install_in_site_packages
+
+    @property
+    def default_locale(self) -> List[str]:
+        """
+        Gets the default locale.
+
+        The value for this property can be set in pyproject.toml (tool.oxt.config.default_locale)
+
+        This is the default locale to use if the locale is not set in the LibreOffice configuration.
+        """
+        return self._default_locale
+
+    @property
+    def dialog_desktop_owned(self) -> bool:
+        """
+        Gets the flag indicating if the dialog is owned by LibreOffice desktop window.
+
+        The value for this property can be set in pyproject.toml (tool.oxt.config.dialog_desktop_owned)
+
+        If this is set to ``True`` then the dialog is owned by the LibreOffice desktop window.
+        """
+        return self._dialog_desktop_owned
 
     @property
     def has_locals(self) -> bool:
@@ -101,6 +126,28 @@ class BasicConfig(metaclass=ConfigMeta):
         Example: {"requests": ">=2.25.1"}
         """
         return self._requirements
+
+    @property
+    def resource_dir_name(self) -> str:
+        """
+        Gets the resource directory name.
+
+        The value for this property can be set in pyproject.toml (tool.oxt.config.resource_dir_name)
+
+        This is the name of the directory containing the resource files.
+        """
+        return self._resource_dir_name
+
+    @property
+    def resource_properties_prefix(self) -> str:
+        """
+        Gets the resource properties prefix.
+
+        The value for this property can be set in pyproject.toml (tool.oxt.config.resource_properties_prefix)
+
+        This is the prefix for the resource properties.
+        """
+        return self._resource_properties_prefix
 
     @property
     def window_timeout(self) -> int:
