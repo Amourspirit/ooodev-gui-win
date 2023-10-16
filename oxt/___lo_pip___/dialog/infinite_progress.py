@@ -5,6 +5,7 @@ import time
 import uno
 
 from .run_time_dialog_base import RuntimeDialogBase
+from ..config import Config
 
 
 class InfiniteProgressDialog(RuntimeDialogBase):
@@ -33,7 +34,18 @@ class InfiniteProgressDialog(RuntimeDialogBase):
         if self._is_init:
             return
         margin = self.MARGIN
-        self.create_dialog(self.title, size=(self.WIDTH, self.HEIGHT))
+        cfg = Config()
+        prop_names = ["Closeable"]
+        prop_values = [False]
+        if cfg.dialog_desktop_owned:
+            prop_names.append("DesktopAsParent")
+            prop_values.append(True)
+        self.create_dialog(
+            self.title,
+            size=(self.WIDTH, self.HEIGHT),
+            prop_names=prop_names,
+            prop_values=prop_values,
+        )
         self.create_label(
             name="label",
             command="",
@@ -94,7 +106,7 @@ class InfiniteProgress(threading.Thread):
                 # possibly sleep and update a label to show progress
                 self._ellipsis += 1
                 in_progress.dialog.setVisible(True)
-                in_progress.update(f"{self._msg}{'.' * self._ellipsis}")
+                in_progress.update(f"{self._msg} {'.' * self._ellipsis}")
                 if self._ellipsis > 300:
                     self._ellipsis = 0
                 time.sleep(1)
