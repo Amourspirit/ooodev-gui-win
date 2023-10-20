@@ -1,21 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<description xmlns="http://openoffice.org/extensions/description/2006"
-    xmlns:dep="http://openoffice.org/extensions/description/2006"
-    xmlns:l="http://libreoffice.org/extensions/description/2011"
-    xmlns:xlink="http://www.w3.org/1999/xlink">
-    <identifier value="org.openoffice.extensions.ooodevguiwin" />
-    <version value="0.3.2.3" />
-    <!-- <dependencies>
-        <l:LibreOffice-minimal-version value="7.0"
-            dep:name="LibreOffice 7.0 minimum, or more recent" />
-    </dependencies> -->
-    <update-download>
-        <src xlink:href="https://raw.githubusercontent.com/Amourspirit/ooodev-gui-win-ext/main/dist/OooDevGuiWin.oxt" />
-    </update-download>
-    <publisher>
-        <name lang="en" xlink:href="https://github.com/Amourspirit/ooodev-gui-win-ext">AmourSpirit</name>
-        <name lang="de" xlink:href="https://github.com/Amourspirit/ooodev-gui-win-ext">AmourSpirit</name>
-        <name lang="fr" xlink:href="https://github.com/Amourspirit/ooodev-gui-win-ext">AmourSpirit</name>
-        <name lang="es" xlink:href="https://github.com/Amourspirit/ooodev-gui-win-ext">AmourSpirit</name>
-    </publisher>
+<?xml version='1.0' encoding='UTF-8'?>
+<description xmlns="http://openoffice.org/extensions/description/2006" xmlns:dep="http://openoffice.org/extensions/description/2006" xmlns:l="http://libreoffice.org/extensions/description/2011" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <identifier value="org.openoffice.extensions.ooodevguiwin"/>
+  <version value="0.3.2.4"/>
+  <dependencies>
+    <l:LibreOffice-minimal-version value="7.0"/>
+  </dependencies>
+  <update-download>
+    <src xlink:href="https://raw.githubusercontent.com/Amourspirit/ooodev-gui-win-ext/main/dist/OooDevGuiWin.oxt"/>
+  </update-download>
+  <publisher>
+    <name xlink:href="https://github.com/Amourspirit/ooodev-gui-win-ext" lang="en">AmourSpirit</name>
+  </publisher>
 </description>
