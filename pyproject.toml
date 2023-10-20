@@ -57,7 +57,7 @@ ooo-dev-tools-gui-win = ">=0.3.2"
 en = { name = "___publisher___", url="___publisher_url___" }
 
 [tool.oxt.locale.name]
-en = "___description___"
+en = "___display_name___"
 fr = "Automatisation de l'interface graphique pour LibreOffice"
 de = "GUI-Automatisierung für LibreOffice"
 es = "Automatización de la interfaz gráfica de usuario para LibreOffice"
@@ -72,7 +72,7 @@ it = "Aggiungi software di automazione GUI a LibreOffice in Windows"
 
 [tool.poetry]
 name = "LibreOffice GUI Automation for Windows"
-version = "0.3.2.4"
+version = "0.3.2.5"
 description = "LibreOffice GUI Automation for Windows"
 authors = [":Barry-Thomas-Paul: Moss <bigbytetech@gmail.com>"]
 license = "MIT"
