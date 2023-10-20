@@ -72,7 +72,7 @@ it = "Aggiungi software di automazione GUI a LibreOffice in Windows"
 
 [tool.poetry]
 name = "LibreOffice GUI Automation for Windows"
-version = "0.3.2.5"
+version = "0.3.2.6"
 description = "LibreOffice GUI Automation for Windows"
 authors = [":Barry-Thomas-Paul: Moss <bigbytetech@gmail.com>"]
 license = "MIT"
