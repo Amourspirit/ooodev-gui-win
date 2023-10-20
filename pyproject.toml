@@ -25,9 +25,9 @@ test_internet_url = "https://duckduckgo.com"
 log_pip_installs = false
 lo_identifier = "org.openoffice.extensions.ooodevguiwin"
 lo_implementation_name = "OooDevGuiWin"
-display_name_en_us = "GUI Automation for LibreOffice"
-description_en_us = "Add GUI Automation Software to LibreOffice in Windows"
-publisher_en_us = "AmourSpirit"
+display_name = "GUI Automation for LibreOffice"
+description = "Add GUI Automation Software to LibreOffice in Windows"
+publisher = "AmourSpirit"
 publisher_url = "https://github.com/Amourspirit/ooodev-gui-win-ext"
 update_url_xml = "https://raw.githubusercontent.com/Amourspirit/ooodev-gui-win-ext/main/___dist_dir___/___update_file___"
 update_url_oxt = "https://raw.githubusercontent.com/Amourspirit/ooodev-gui-win-ext/main/___dist_dir___/___oxt_name___.oxt"
@@ -53,9 +53,26 @@ ooo-dev-tools-gui-win = ">=0.3.2"
 [tool.oxt.preinstall.pure]
 # verr = ">=1.1.2"
 
+[tool.oxt.locale.publisher]
+en = { name = "___publisher___", url="___publisher_url___" }
+
+[tool.oxt.locale.name]
+en = "___description___"
+fr = "Automatisation de l'interface graphique pour LibreOffice"
+de = "GUI-Automatisierung für LibreOffice"
+es = "Automatización de la interfaz gráfica de usuario para LibreOffice"
+it = "Automazione dell'interfaccia grafica per LibreOffice"
+
+[tool.oxt.locale.desc]
+en = "___description___"
+fr = "Ajouter un logiciel d'automatisation de l'interface graphique à LibreOffice sous Windows"
+de = "Fügen Sie der Windows-Version von LibreOffice eine GUI-Automatisierungssoftware hinzu"
+es = "Agregue software de automatización de GUI a LibreOffice en Windows"
+it = "Aggiungi software di automazione GUI a LibreOffice in Windows"
+
 [tool.poetry]
 name = "LibreOffice GUI Automation for Windows"
-version = "0.3.2.3"
+version = "0.3.2.4"
 description = "LibreOffice GUI Automation for Windows"
 authors = [":Barry-Thomas-Paul: Moss <bigbytetech@gmail.com>"]
 license = "MIT"
@@ -76,6 +93,7 @@ pytest-dotenv = "^0.5.2"
 black = "^23.7.0"
 oooscript = "^1.1.3"
 oooenv = "^0.2.2"
+lxml = "^4.9.3"
 
 [build-system]
 requires = ["poetry-core"]
